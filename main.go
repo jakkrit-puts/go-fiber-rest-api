@@ -7,6 +7,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/jakkrit-puts/go-fiber-rest-api/configs"
 	"github.com/jakkrit-puts/go-fiber-rest-api/routes"
 	"github.com/joho/godotenv"
 )
@@ -17,6 +18,8 @@ func main() {
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
+
+	configs.Connection()
 
 	PORT := os.Getenv("PORT")
 

@@ -26,6 +26,6 @@ func Login(c *fiber.Ctx) error {
 }
 
 func Register(c *fiber.Ctx) error {
-	err := c.SendString("register..")
+	err := c.SendString("register.")
 	return err
 }
