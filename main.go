@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/jakkrit-puts/go-fiber-rest-api/routes"
 	"github.com/joho/godotenv"
 )
@@ -20,6 +21,9 @@ func main() {
 	PORT := os.Getenv("PORT")
 
 	app := fiber.New()
+
+	// middleware
+	app.Use(logger.New()) // Logger
 
 	v1 := app.Group("/api/v1")
 

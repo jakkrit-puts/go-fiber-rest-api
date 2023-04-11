@@ -12,7 +12,12 @@ func UserRoutes(rg fiber.Router) {
 
 	routerGroup.Get("/", userctrl.GetAll)
 
+	routerGroup.Get("/search", userctrl.Search)
+
+	routerGroup.Get("/:id", userctrl.GetById)
+
 	routerGroup.Post("/login", userctrl.Login)
 
 	routerGroup.Post("/register", userctrl.Register)
+
 }
