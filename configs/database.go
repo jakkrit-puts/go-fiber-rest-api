@@ -2,6 +2,7 @@ package configs
 
 import (
 	"fmt"
+	"log"
 	"os"
 
 	"gorm.io/driver/mysql"
@@ -15,8 +16,8 @@ func Connection() {
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {
-	  fmt.Println("Database: Connection fail., oops!.")
-    panic(err)
+		fmt.Println("Database: Connection fail., oops!.")
+		log.Fatal(err)
 	}
 
 	fmt.Println("Database: Connected., let'go.")
