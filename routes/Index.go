@@ -8,7 +8,8 @@ func IndexRoutes(rg fiber.Router) {
 	routerGroup := rg.Group("")
 
 	routerGroup.Get("/", func(c *fiber.Ctx) error {
-		err := c.SendString("Fiber Stock Mini API V.1.0.0")
-		return err
+		return c.Status(fiber.StatusOK).JSON(fiber.Map{
+			"API_INFO": "Fiber Basic API V.1.0.0",
+		})
 	})
 }

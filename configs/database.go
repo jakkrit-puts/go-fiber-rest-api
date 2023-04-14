@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/jakkrit-puts/go-fiber-rest-api/models"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -21,5 +22,9 @@ func Connection() {
 	}
 
 	fmt.Println("Database: Connected., let'go.")
+
+	// Migrate Model
+	db.AutoMigrate(&models.User{})
+
 	DB = db
 }
