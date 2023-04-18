@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/jakkrit-puts/go-fiber-rest-api/configs"
 	"github.com/jakkrit-puts/go-fiber-rest-api/routes"
@@ -26,6 +27,10 @@ func main() {
 	app := fiber.New()
 
 	// middleware
+	app.Use(cors.New(cors.Config{
+		AllowOrigins: "*",
+		AllowHeaders: "*",
+	}))
 	app.Use(logger.New()) // Logger
 
 	v1 := app.Group("/api/v1")
