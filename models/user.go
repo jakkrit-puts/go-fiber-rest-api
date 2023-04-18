@@ -18,13 +18,6 @@ type User struct {
 	UpdatedAt time.Time
 }
 
-// payload
-type CreateUserPayload struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
-	Fullname string `json:"fullname"`
-}
-
 // hook
 func (user *User) BeforeCreate(db *gorm.DB) error {
 	user.Password = hashPassword(user.Password)
