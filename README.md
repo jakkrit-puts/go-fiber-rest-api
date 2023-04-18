@@ -1,4 +1,4 @@
-# go-fiber-rest-api
+# go-fiber-rest-api (basic learning)
 Go Fiber RESTful API and Connect MySQL With GORM
 
 ### structure folder app
@@ -10,7 +10,7 @@ Go Fiber RESTful API and Connect MySQL With GORM
 - `./routes`  for set routes to functional controller
 - `./utils` create function utils folder
 
-### step setup app
+### setup app
 ```
 - create .env follow .env.example
 - go get for download package
