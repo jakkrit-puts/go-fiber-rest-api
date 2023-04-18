@@ -9,13 +9,13 @@ import (
 )
 
 type User struct {
-	ID        uint   `gorm:"primaryKey;autoIncrement;not null"`
-	Fullname  string `gorm:"type:varchar(255);not null"`
-	Username  string `gorm:"type:varchar(255);not null;unique"`
-	Password  string `gorm:"type:varchar(255);not null"`
-	HasAdmin  bool   `gorm:"type:bool;default:false"`
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	ID        uint      `gorm:"primaryKey;autoIncrement;not null" json:"id"`
+	Fullname  string    `gorm:"type:varchar(255);not null" json:"fullname"`
+	Username  string    `gorm:"type:varchar(255);not null;unique" json:"username"`
+	Password  string    `gorm:"type:varchar(255);not null"`
+	HasAdmin  bool      `gorm:"type:bool;default:false" json:"has_admin"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 // hook

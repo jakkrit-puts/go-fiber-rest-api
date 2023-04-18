@@ -1,7 +1,6 @@
 package userctrl
 
 import (
-	"fmt"
 	"os"
 	"time"
 
@@ -40,7 +39,7 @@ func Login(c *fiber.Ctx) error {
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"user_id": user.ID,
-		"exp":     time.Now().Add(time.Hour * 24 * 7).Unix(),
+		"exp":     time.Now().Add(time.Second * 24 * 2).Unix(), // set expire token
 	})
 
 	jwtSecretKey := os.Getenv("JWT_SECRET_KEY")
@@ -97,8 +96,6 @@ func GetById(c *fiber.Ctx) error {
 
 	result := configs.DB.First(&user, id)
 
-	fmt.Println(result)
-
 	if result.RowsAffected == 0 {
 		return c.Status(fiber.StatusNotFound).JSON(fiber.Map{"message": "record not found."})
 	}
@@ -128,7 +125,9 @@ func GetBySearch(c *fiber.Ctx) error {
 
 func GetProfile(c *fiber.Ctx) error {
 
+	user := c.Locals("user").(models.User)
+
 	return c.Status(fiber.StatusOK).JSON(fiber.Map{
-		"result": "user",
+		"result": user,
 	})
 }

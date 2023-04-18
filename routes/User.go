@@ -3,6 +3,7 @@ package routes
 import (
 	"github.com/gofiber/fiber/v2"
 	userctrl "github.com/jakkrit-puts/go-fiber-rest-api/controllers/user"
+	"github.com/jakkrit-puts/go-fiber-rest-api/middlewares"
 )
 
 func UserRoutes(rg fiber.Router) {
@@ -11,6 +12,8 @@ func UserRoutes(rg fiber.Router) {
 	routerGroup := rg.Group("/users")
 
 	routerGroup.Get("/", userctrl.GetAll)
+
+	routerGroup.Get("/me", middlewares.AuthJWT, userctrl.GetProfile)
 
 	routerGroup.Get("/search", userctrl.GetBySearch)
 
