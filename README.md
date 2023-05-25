@@ -1,7 +1,7 @@
-# go-fiber-rest-api (basic learning)
+# GO Fiber Restful API (basic learning)
 Go Fiber RESTful API and Connect MySQL With GORM
 
-### Structure folder app
+### <g-emoji class="g-emoji" alias="file_folder" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png">📁</g-emoji> Structure folder app
 
 - `./configs` for config env or db for app 
 - `./controllers` for functional controllers
@@ -10,13 +10,13 @@ Go Fiber RESTful API and Connect MySQL With GORM
 - `./routes`  for set routes to functional controller
 - `./utils` create function utils folder
 
-### Setup app
+### <g-emoji class="g-emoji" alias="hammer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f528.png">🔨</g-emoji>  Setup app
 ```
 - create .env follow .env.example
 - go get for download package
 ```
 
-### Command usage start project
+### <g-emoji class="g-emoji" alias="zap" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png">⚡️</g-emoji> Command usage start project
 ```
  air  (live reload for dev)
 ```
